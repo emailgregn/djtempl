@@ -32,7 +32,7 @@ djtempl will pass in a tuple called ``pip_requirements`` into the template conte
 
 .. code:: bash
 
-    python djtempl.py -t ./Dockerfile.tmpl -p ./requirements.txt -d ./Dockerfile.out -q
+    djtempl -t ./Dockerfile.tmpl -p ./requirements.txt -d ./Dockerfile.out -q
 
 
 
