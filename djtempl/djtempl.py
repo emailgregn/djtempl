@@ -6,7 +6,7 @@ ToDo: better --help handling
 """
 import sys
 import os
-import django
+
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.template import Context
@@ -62,53 +62,18 @@ def get_requirements(pfile):
     return requirements_tuple
 
 
-def main(argv):
-    import argparse
+def render_files(pip_file, template_file, docker_file, quiet):
 
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument("-t", "--template",
-                        metavar='file',
-                        default='Dockerfile.tmpl',
-                        type=argparse.FileType(mode='r'), # 2.7 argparse.FileType() doesn't support encoding=
-                        help="The dockerfile template to render")
-
-    parser.add_argument("-p", "--pip",
-                        metavar='file',
-                        default='requirements.txt',
-                        type=argparse.FileType(mode='r'),
-                        help="The pip requirements file")
-
-    parser.add_argument("-d", "--dockerfile",
-                        metavar='file',
-                        default=sys.stdout,
-                        type=argparse.FileType(mode='w'),
-                        help="The output dockerfile. Default is STDOUT")
-
-    parser.add_argument("-q", "--quiet",
-                        action="store_true",
-                        help="Silently overwrite if Dockerfile already exists")
-
-    args = parser.parse_args()
-
-    dfile = args.dockerfile
-    pfile = args.pip
-    tfile = args.template
-
-    if not args.quiet and dfile.name != '<stdout>':
-        if os.path.isfile(dfile.name):
-            print 'File %s already exists' % dfile.name
+    if not quiet and docker_file.name != '<stdout>':
+        if os.path.isfile(docker_file.name):
+            print 'File %s already exists' % docker_file.name
             sys.exit(-1)
 
-    requirements_tuple = get_requirements(pfile)
+    requirements_tuple = get_requirements(pip_file)
 
     template_context = {'pip_requirements': requirements_tuple}
 
-    rendered = djtempl_render(tfile.name, template_context).encode('utf-8','ignore')
+    rendered = djtempl_render(template_file.name, template_context).encode('utf-8','ignore')
 
-    dfile.write( rendered)
-    dfile.close()
-
-if __name__ == "__main__":
-    main(sys.argv[1:])
-
+    docker_file.write( rendered)
+    docker_file.close()

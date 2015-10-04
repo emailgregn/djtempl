@@ -80,6 +80,9 @@ setup(
         'test': ['coverage'],
     },
 
+    test_suite='nose.collector',
+    tests_require=['nose'],
+
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
@@ -97,7 +100,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'djtempl=djtempl:main',
+            'djtempl=djtempl.cli:main',
         ],
     },
 )

@@ -28,8 +28,7 @@ RUN pip install --upgrade huey==0.4.9
 """.splitlines()
         with tempfile.NamedTemporaryFile(mode='rw') as tmpFile:
             args = [
-                'python',
-                'djtempl.py',
+                'djtempl',
                 '-t',   '../tests/data/Dockerfile.tmpl',
                 '-p',   '../tests/data/requirements.txt',
                 '-d',   tmpFile.name,
