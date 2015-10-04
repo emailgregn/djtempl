@@ -1,7 +1,8 @@
 About
 -----
 Render a dockerfile from a template and pip requirements.txt.
-
+Docker caches each dockerfile command in it's own layer.
+By breaking out requirements.txt, each pip requirement goes into its own layer and build time improves.
 
 Handles all the syntax allowed by `pip <https://pip.pypa.io/en/stable/>`_ in `requirements.txt <https://pip.pypa.io/en/stable/user_guide/#requirements-files>`_
 
@@ -31,13 +32,17 @@ djtempl will pass in a tuple called ``pip_requirements`` into the template conte
 
 .. code:: bash
 
-    python djtempl.py -t ./Dockerfile.tmpl -p ./requirements.txt -d ./Dockerfile.out -q``
+    python djtempl.py -t ./Dockerfile.tmpl -p ./requirements.txt -d ./Dockerfile.out -q
 
 
 
 Installation
 ------------
-Sorry, you're on your own until I find time to learn pipy packaging.
+
+.. code:: bash
+
+    pip install djtempl
+
 
 `djtempl.py <https://raw.githubusercontent.com/emailgregn/djtempl/master/djtempl/djtempl.py>`_
 is pure python and only requires django>=1.8.0

@@ -2,7 +2,7 @@
 
 See:
 https://packaging.python.org/en/latest/distributing.html
-https://github.com/pypa/sampleproject
+https://github.com/emailgregn/djtempl
 """
 
 # Always prefer setuptools over distutils
@@ -18,7 +18,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='sample',
+    name='djtempl',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -36,7 +36,7 @@ setup(
     author_email='emailgregn@gmail.com',
 
     # Choose your license
-    license='GPL v3',
+    license='GPLv3+',
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -51,7 +51,7 @@ setup(
         'Topic :: Software Development :: Build Tools',
 
         # Pick your license as you wish (should match "license" above)
-        'License :: OSI Approved :: GPL v3',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
