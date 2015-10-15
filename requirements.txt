@@ -1,0 +1,4 @@
+# these are for travis-ci
+# setup.py takes care of the actual install requirements
+Django==1.8.5
+
