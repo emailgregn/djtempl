@@ -5,5 +5,5 @@ python:
 ## not needed.https://packaging.python.org/en/latest/requirements/
 #install: "pip install -r requirements.txt"
 # # command to run tests
-script: "{envpython} setup.py develop && nosetests -w tests/"
+script: "python setup.py develop && nosetests -w tests/"
 
