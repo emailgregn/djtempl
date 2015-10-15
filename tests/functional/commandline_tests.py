@@ -26,6 +26,7 @@ RUN pip install --upgrade django-redis-sessions==0.5.0
 RUN pip install --upgrade huey==0.4.9
 # End Template generated
 """.splitlines()
+
         with tempfile.NamedTemporaryFile(mode='rw') as tmpFile:
             args = [
                 'djtempl',

@@ -22,13 +22,14 @@ Replace the pip install command that looks something like this::
     RUN pip install -r requirements.txt
 
 
-with some standard django template tags like this::
+with some standard django template tags.
+djtempl will pass a tuple called ``pip_requirements`` into the template context.::
 
     {% for req in pip_requirements %}
     RUN pip install --upgrade {{ req }}{% endfor%}
 
 
-djtempl will pass in a tuple called ``pip_requirements`` into the template context.
+
 
 .. code:: bash
 
