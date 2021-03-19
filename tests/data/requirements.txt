@@ -5,7 +5,7 @@ django-bootstrap3==6.1.0
 django-lazysignup==1.0.1
 
 django-registration-redux==1.2
-Djangorestframework==3.2.3
+Djangorestframework==3.11.2
    # a tricky comment
 django-redis-sessions==0.5.0
 huey==0.4.9
